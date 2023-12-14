@@ -2,71 +2,71 @@
 import 'yifi_platform_interface.dart';
 
 class Yifi {
-  Future<String?> getPlatformVersion() {
+static  Future<int?> getPlatformVersion() {
     return YifiPlatform.instance.getPlatformVersion();
   }
 
-  Future<void> promptUserToEnableHotspot() async {
+ static  Future<void> promptUserToEnableHotspot() async {
     await YifiPlatform.instance.promptUserToEnableHotspot();
   }
 
-  Future<void> promptUserToConnectToWifi() async {
+ static  Future<void> promptUserToConnectToWifi() async {
     await YifiPlatform.instance.promptUserToConnectToWifi();
   }
 
-  Future<int?> getHotspotState() {
+ static  Future<int?> getHotspotState() {
     return YifiPlatform.instance.getHotspotState();
   }
 
-  Future<String?> getSsid() {
+ static  Future<String?> getSsid() {
     return YifiPlatform.instance.getSsid();
   }
 
-  Future<bool?> isEnabling() {
+ static  Future<bool?> isEnabling() {
     return YifiPlatform.instance.isEnabling();
   }
 
-  Future<bool?> isEnabled() {
+ static  Future<bool?> isEnabled() {
     return YifiPlatform.instance.isEnabled();
   }
 
-  Future<bool?> isDisabling() {
+ static  Future<bool?> isDisabling() {
     return YifiPlatform.instance.isDisabling();
   }
 
-  Future<bool?> isDisabled() {
+ static  Future<bool?> isDisabled() {
     return YifiPlatform.instance.isDisabled();
   }
 
-  Future<bool?> failed() {
+ static  Future<bool?> failed() {
     return YifiPlatform.instance.failed();
   }
 
-  Future<bool?> isNotEnabled() {
+ static  Future<bool?> isNotEnabled() {
     return YifiPlatform.instance.isNotEnabled();
   }
 
-  Future<bool?> isConnectedToWifi() {
+ static  Future<bool?> isConnectedToWifi() {
     return YifiPlatform.instance.isConnectedToWifi();
   }
 
-  Future<bool?> isNotConnectedToWifi() {
+ static  Future<bool?> isNotConnectedToWifi() {
     return YifiPlatform.instance.isNotConnectedToWifi();
   }
 
-  Future<void> connectToWifi(String ssid, String password) async {
+ static  Future<void> connectToWifi(String ssid, String password) async {
     await YifiPlatform.instance.connectToWifi(ssid, password);
   }
 
-  Future<String?> getIp() {
+ static  Future<String?> getIp() {
     return YifiPlatform.instance.getIp();
   }
 
-  Future<bool> isPortAvailable() {
+ static  Future<bool> isPortAvailable() {
     return YifiPlatform.instance.isPortAvailable();
   }
 
-  Future<int?> findAvailablePort() {
+ static  Future<int?> findAvailablePort() {
     return YifiPlatform.instance.findAvailablePort();
   }
 }

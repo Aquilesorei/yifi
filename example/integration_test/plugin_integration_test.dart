@@ -16,10 +16,9 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('getPlatformVersion test', (WidgetTester tester) async {
-    final Yifi plugin = Yifi();
-    final String? version = await plugin.getPlatformVersion();
+    final int? version = await Yifi.getPlatformVersion();
     // The version string depends on the host platform running the test, so
     // just assert that some non-empty string is returned.
-    expect(version?.isNotEmpty, true);
+    expect(version != 0, true);
   });
 }

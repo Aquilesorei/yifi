@@ -29,7 +29,7 @@ class YifiPlugin: FlutterPlugin, MethodCallHandler {
 
     when (call.method) {
       "getPlatformVersion" -> {
-        result.success("Android ${android.os.Build.VERSION.RELEASE}")
+        result.success(android.os.Build.VERSION.RELEASE)
       }
       "getHotspotState" -> {
         val hotspotState = hotspot.getHotspotState()
@@ -89,6 +89,17 @@ class YifiPlugin: FlutterPlugin, MethodCallHandler {
         } else {
           result.error("MISSING_ARGUMENT", "SSID or password missing", null)
         }
+      }
+      "extractapk" ->{
+        val packageName = call.argument<String>("packageName")
+        if(packageName != null){
+
+          val path = extractApkByPackageName(packageName = packageName, context = context)
+          result.success(path)
+        }else{
+          result.error("MISSING_ARGUMENT", "package name is missing", null)
+        }
+
       }
       "getIp" -> {
         val ip = hotspot.getIp()

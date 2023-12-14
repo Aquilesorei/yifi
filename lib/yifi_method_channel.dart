@@ -10,9 +10,9 @@ class MethodChannelYifi extends YifiPlatform {
   final methodChannel = const MethodChannel('yifi');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<int?> getPlatformVersion() async {
+    final String? version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+    return int.parse(version!);
   }
 
   @override

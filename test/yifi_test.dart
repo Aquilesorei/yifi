@@ -9,7 +9,7 @@ class MockYifiPlatform
     implements YifiPlatform {
 
   @override
-  Future<String?> getPlatformVersion() => Future.value('42');
+  Future<int?> getPlatformVersion() => Future.value(42);
 }
 
 void main() {
@@ -24,6 +24,6 @@ void main() {
     MockYifiPlatform fakePlatform = MockYifiPlatform();
     YifiPlatform.instance = fakePlatform;
 
-    expect(await yifiPlugin.getPlatformVersion(), '42');
+    expect(await Yifi.getPlatformVersion(), '42');
   });
 }
