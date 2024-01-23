@@ -69,4 +69,9 @@ static  Future<int?> getPlatformVersion() {
  static  Future<int?> findAvailablePort() {
     return YifiPlatform.instance.findAvailablePort();
   }
+
+static Future<String?> getConnectedDevices() async {
+return YifiPlatform.instance.getConnectedDevices();
+
+}
 }

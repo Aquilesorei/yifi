@@ -1,8 +1,10 @@
 package com.yibloa.yifi
 
 import android.content.Context
-import androidx.annotation.NonNull
-
+import com.google.gson.Gson
+import com.yibloa.yifi.lib.DeviceFinder
+import com.yibloa.yifi.lib.interfaces.OnDeviceFoundListener
+import com.yibloa.yifi.lib.models.DeviceItem
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -121,6 +123,30 @@ class YifiPlugin: FlutterPlugin, MethodCallHandler {
       "findAvailablePort" -> {
         val availablePort = hotspot.findAvailablePort()
         result.success(availablePort)
+      }
+      
+      "getConnectedDevices" -> {
+
+        val devicesFinder = DeviceFinder(context, object : OnDeviceFoundListener {
+
+          override fun onStart(deviceFinder: DeviceFinder?) {
+            print("started")
+          }
+
+          override fun onFinished(
+            deviceFinder: DeviceFinder?,
+            deviceItems: MutableList<DeviceItem>?
+          ) {
+            val json: String = Gson().toJson(deviceItems);
+              result.success(json);
+          }
+
+          override fun onFailed(deviceFinder: DeviceFinder?, errorCode: Int) {
+            result.error(errorCode.toString(),"failed to perform scan","sorry");
+          }
+        })
+
+        devicesFinder.setTimeout(5000).start()
       }
       else -> {
         result.notImplemented()

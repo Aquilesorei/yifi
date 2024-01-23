@@ -22,6 +22,18 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     initPlatformState();
+
+   test();
+  }
+
+
+  Future<void> test() async {
+    try {
+    await  Yifi.getConnectedDevices().then((value) => print(value));
+    } catch(e){
+      print("error");
+    }
+
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.

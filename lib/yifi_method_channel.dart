@@ -108,4 +108,11 @@ class MethodChannelYifi extends YifiPlatform {
     final port = await methodChannel.invokeMethod<int>('findAvailablePort');
     return port;
   }
+
+
+  @override
+  Future<String?> getConnectedDevices() async {
+   final json =  await methodChannel.invokeMethod("getConnectedDevices");
+   return json;
+  }
 }

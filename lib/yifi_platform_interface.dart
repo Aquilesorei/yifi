@@ -85,6 +85,11 @@ abstract class YifiPlatform extends PlatformInterface {
     throw UnimplementedError('getIp() has not been implemented');
   }
 
+
+  Future<String?> getConnectedDevices(){
+    throw UnimplementedError('getConnectedDevices() has not been implemented');
+  }
+
   Future<bool> isPortAvailable(){
     throw UnimplementedError('isPortAvailable() has not been implemented');
 
@@ -93,4 +98,5 @@ abstract class YifiPlatform extends PlatformInterface {
   Future<int?> findAvailablePort() {
     throw UnimplementedError('findAvailablePort() has not been implemented');
   }
+
 }
