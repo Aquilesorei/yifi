@@ -1,7 +1,7 @@
 name: yifi
 description: yet an other wifi utils tools
 version: 0.0.1
-homepage:
+homepage: https://github.com/Aquilesorei/yifi
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
