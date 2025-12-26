@@ -1,4 +1,4 @@
-group 'com.yibloa.yifi'
+group 'com.ztransfer.yifi'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 android {
     if (project.android.hasProperty("namespace")) {
-        namespace 'com.yibloa.yifi'
+        namespace 'com.ztransfer.yifi'
     }
 
     compileSdkVersion 33

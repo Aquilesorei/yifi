@@ -35,7 +35,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.yibloa.yifi
+        package: com.ztransfer.yifi
         pluginClass: YifiPlugin
       linux:
         pluginClass: YifiPlugin
